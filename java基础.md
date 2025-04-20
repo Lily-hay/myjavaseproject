@@ -1,0 +1,148 @@
+# java基础
+
+## 5、数组
+
+1、数组的定义
+
+数据类型 [] 数组名=new 数据类型[]{元素}；
+
+也可写为 数据类型 数组名[]
+
+简化类型   数据类型 [] 数组名={元素}；
+
+```
+int[] ages=new int[]{21,34,38};
+//简化
+int[] ages2={21,34,64};
+```
+
+数组变量名中存储的是数组内存中地址，是引用数据类型
+
+2、数组的访问
+
+数组名[索引]
+
+ages[0]
+
+访问数组长度，索引
+
+```
+//        访问数组长度
+        System.out.println(ages.length);
+        //索引
+        System.out.println(ages.length-1);
+```
+
+3、数组的遍历
+
+```
+//数组遍历
+for (int age : ages) {
+    System.out.println(age);
+}
+for(int i=0;i<ages.length;i++)
+{
+	System.out.println(ages[i]);
+}
+```
+
+4、动态初始化数组
+
+数据类型[] 数组名=new 数据类型[长度]；//后期存入数据
+
+int[] ages=new int[4]；
+
+boolean类型数组默认值False
+
+5、程序的执行原理
+
+Java内存分为方法区、栈和堆
+
+字节码文件即（.class文件）加载到方法区(文件加载到内存中)，main函数送到栈内存中，其中的变量也存储到这个区域，new出来的对象存储在堆中，通过返回对象的地址传送到栈中。
+
+6、多个变量指向同一个数组对象
+
+存储的是相同的地址，每个变量修改数组值都有效
+
+```
+int[] arr1=new int[]{1,2,3,4,5};
+int[] arr2=arr1;
+System.out.println(arr1);
+System.out.println(arr2);
+arr2[2]=10;
+System.out.println(arr1[2]);//数组里的值已被改变
+```
+
+某个数组变量存储的地址为null,它将不再指向任何对象
+
+```
+arr2=null;
+    System.out.println(arr2);
+    System.out.println(arr2[0]);//空指针异常，NullPointerException
+}
+```
+
+数组遍历需要注意
+
+```
+    int[] facescore={15,9000,10000,20000,9500,-5};
+    int max=facescore[0];
+    for (int i = 1; i < facescore.length; i++) {
+        if(facescore[i]>max)//facescore[i]每次都要到堆里找,寻找了两次
+        {
+            max=facescore[i];
+        }
+    }
+    System.out.println(max);
+}
+//改进
+    int[] facescore={15,9000,10000,20000,9500,-5};
+    int max=facescore[0];
+    for (int i = 1; i < facescore.length; i++) {
+    	score=facescore[i]
+        if(score>max)//facescore[i]//只找了一次
+        {
+            max=score;
+        }
+    }
+    System.out.println(max);
+```
+
+7、数组交换
+
+```
+for (int i = 0,j= facescore.length-1; i < j; i++,j--) {
+    int temp=facescore[j];
+    facescore[j]=facescore[i];
+    facescore[i]=temp;
+}
+for (int i = 0; i < facescore.length; i++) {
+    System.out.print(facescore[i]+" ");
+}
+```
+
+```
+//打乱数组中的数据
+Random r=new Random();
+for (int i = 0;i<facescore.length; i++) {
+    int j=r.nextInt(facescore.length);
+    int temp=facescore[j];
+    facescore[j]=facescore[i];
+    facescore[i]=temp;
+}
+for (int i = 0; i < facescore.length; i++) {
+    System.out.print(facescore[i]+" ");
+```
+
+## 6、方法
+
+方法也就是函数
+
+
+
+```
+public static int getMax(int a,int b){
+    int max=a>b ? a:b;
+    return max;
+}
+```
