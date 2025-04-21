@@ -136,7 +136,7 @@ for (int i = 0; i < facescore.length; i++) {
 
 ## 6、方法
 
-方法也就是函数
+1、方法也就是函数
 
 
 
@@ -146,3 +146,87 @@ public static int getMax(int a,int b){
     return max;
 }
 ```
+
+2、方法的执行原理
+
+方法运行在栈中
+
+保证调完方法能够回来，并且释放内存空间
+
+3、基本类型的参数传递机制
+
+**值传递，传输的是实参存储的值的副本**
+
+```
+ int a=10;
+    change(a);
+    System.out.println(a);//10值并没有改变
+}
+public static void change(int a)
+{
+    System.out.println(a);//10
+    a=20;
+    System.out.println(a);//20
+```
+
+4、引用类型的参数传递机制
+
+传递的是地址
+
+```
+int[] arr={10,20,30};
+    change1(arr);
+    System.out.println(arr[1]);//366值改变
+}
+public static void change1(int[] arr)
+{
+    System.out.println(arr[1]);//20
+    arr[1]=366;
+    System.out.println(arr[1]);//366
+}
+```
+
+demo
+
+```
+public static boolean compare(int[] arr1,int[] arr2)
+{
+    if(arr1==null || arr2==null)//卫语句，排除其他情况
+    {
+        return false;
+    }
+    if(arr1.length!=arr2.length)
+    {
+        return false;
+    }
+    for (int i = 0; i < arr1.length; i++) {
+        if(arr1[i]!=arr2[i])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
+5、方法重载
+
+一个类中，名称相同，形参列表必须不同（个数、类型、顺序），不关心形参的名称
+
+```
+public static void fire()
+{
+    System.out.println("向M国发射一枚火箭");
+}
+public static void fire(String location)
+{
+    System.out.println("向"+location+"发射一枚火箭");
+}
+public static void fire(String location,int number)
+{
+    System.out.println("向"+location+"发射"+number+"枚火箭");
+}
+```
+
+
+
