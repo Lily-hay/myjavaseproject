@@ -228,5 +228,55 @@ public static void fire(String location,int number)
 }
 ```
 
+## 7、面向对象编程
 
+1、基本创建
+
+```
+//类：对象的数据结构
+public class Student {
+	//成员对象
+    String name;
+    double chinese;
+    double math;
+    //成员方法
+    public void printAllScore()
+    {
+        System.out.println(name+"总成绩："+(chinese+math));
+    }
+    public void printAverageScore()
+    {
+        System.out.println(name+"平均成绩："+(chinese+math)/2);
+    }
+}
+```
+
+```
+Student s1=new Student();//创建对象,每new一次，得到一个新的对象
+s1.name="波妞";
+s1.chinese=69;
+s1.math=89;
+s1.printAllScore();
+s1.printAverageScore();
+```
+
+对象本质是一种特殊的数据结构
+
+​											s1学生表
+
+|  name   |      |
+| :-----: | ---- |
+| chinese |      |
+|  math   |      |
+|   ...   |      |
+
+**每new一次，得到一个新的对象**，在堆内存中开辟一块内存区域代表一个学生对象
+
+2、理解类和对象的一些注意事项
+
+①创建对象的成员变量有初始化的默认值0，null等
+
+②一个文件类中可以有多个类，但public所指的必须为文件名
+
+③当堆内存中的对象，没用被任何变量引用（指向时），被判定为垃圾，java有自动垃圾回收机制
 
