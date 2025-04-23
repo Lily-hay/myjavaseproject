@@ -1,4 +1,4 @@
-package com.lily.d1_object;
+package com.lily.d1_object.object;
 
 public class Test {
     public static void main(String[] args) {

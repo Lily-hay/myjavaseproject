@@ -62,6 +62,14 @@ JAVA_HOME:D:\Program Files\Java\jdk-21
 
 编译产生的文件在out里
 
+导入模块
+
+方式一：
+
+![image-20250423153324844](C:\Users\DL\AppData\Roaming\Typora\typora-user-images\image-20250423153324844.png)
+
+方式二:创建一个新的模块，将已有的模块复制过来
+
 字体设置：font
 
 2、快捷键
@@ -405,7 +413,7 @@ public static void fire(String location,int number)
 
 ## 9、面向对象编程
 
-1、基本创建
+### 1、基本创建
 
 ```
 //类：对象的数据结构
@@ -447,7 +455,7 @@ s1.printAverageScore();
 
 **每new一次，得到一个新的对象**，在堆内存中开辟一块内存区域代表一个学生对象
 
-2、理解类和对象的一些注意事项
+### 2、理解类和对象的一些注意事项
 
 ①创建对象的成员变量有初始化的默认值0，null等
 
@@ -455,3 +463,77 @@ s1.printAverageScore();
 
 ③当堆内存中的对象，没用被任何变量引用（指向时），被判定为垃圾，java有自动垃圾回收机制
 
+### 3、this关键字
+
+用在方法中，可以拿到当前对象(地址)
+
+解决（成员变量和局部变量）变量名称冲突的问题
+
+```
+public void pass(double score)
+{//见名知意可能引起局部变量与成员变量名称的冲突
+    if(this.score>=score)
+    {
+        System.out.println("pass");
+    }
+    else
+    {
+        System.out.println("fail");
+    }
+}
+```
+
+4、构造器
+
+```
+public class Student {
+    public Student(){
+        
+    }
+}
+```
+
+```
+Student s1 = new Student();//创建对象时，会自动调用构造器
+```
+
+创建对象时，同时完成为成员对象初始化赋值
+
+构造器注意事项：类默认自带无参构造器，写不写都行，但写了有参构造器，默认的无参构造器就没有了，此时需要手动写出无参构造器
+
+```
+Student s1 = new Student();
+Student s2 = new Student("小明");
+Student s3 = new Student("小红",18);
+```
+
+### 4、封装
+
+将需要用的变量和方法放在同一个类中
+
+设计规范：合理隐藏，合理暴露
+
+```
+private  int age;//私有成员不能直接访问，提供相应的访问方法
+private double chinese;
+private double math;
+
+public void setAge(int age) {//修饰的成员公开，可以在任何地方直接访问
+    if(age>=0 && age<=180)
+    {
+        this.age=age;
+    }
+}
+
+public int getAge() {
+    return age;
+}
+```
+
+### 8、实体类
+
+成员变量都私有，提供相应公共的无参构造器，并提供相应的get set方法
+
+作用：①实体类的对象本身只负责存储对象的数据
+
+②对于数据的业务处理应该交给另一个类的对象来处理（分层思想）

@@ -1,4 +1,4 @@
-package com.lily.d1_object;
+package com.lily.d1_object.object;
 //类：对象的数据结构
 public class Student {
     String name;
