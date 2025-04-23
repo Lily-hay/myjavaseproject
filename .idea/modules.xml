@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/day01-helloworld-code/day01-helloworld-code.iml" filepath="$PROJECT_DIR$/day01-helloworld-code/day01-helloworld-code.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day02-basic/day02-basic.iml" filepath="$PROJECT_DIR$/day02-basic/day02-basic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day03-flow-control/day03-flow-control.iml" filepath="$PROJECT_DIR$/day03-flow-control/day03-flow-control.iml" />
       <module fileurl="file://$PROJECT_DIR$/day04-array/day04-array.iml" filepath="$PROJECT_DIR$/day04-array/day04-array.iml" />
       <module fileurl="file://$PROJECT_DIR$/day05-method/day05-method.iml" filepath="$PROJECT_DIR$/day05-method/day05-method.iml" />
       <module fileurl="file://$PROJECT_DIR$/day06-case/day06-case.iml" filepath="$PROJECT_DIR$/day06-case/day06-case.iml" />
