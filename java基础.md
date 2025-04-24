@@ -537,3 +537,123 @@ public int getAge() {
 作用：①实体类的对象本身只负责存储对象的数据
 
 ②对于数据的业务处理应该交给另一个类的对象来处理（分层思想）
+
+## 10、API
+
+1、包（使用其他包里的类需要导包）
+
+![image-20250424142927290](C:\Users\DL\AppData\Roaming\Typora\typora-user-images\image-20250424142927290.png)
+
+2、String
+
+字符串概述
+
+```
+String name="小黑";
+String s1=new String();//无参
+System.out.println(s1);
+String s2=new String("菠萝吹雪");//有参
+System.out.println(s2);
+char[] c= {'a','b','c','中','国'};
+String s3=new String(c);//将字符串数组转为字符串
+System.out.println(s3);
+byte[] b={97,98,99,65,66,67};
+String s4=new String(b);//将字节数组的值转为字符串
+```
+
+字符串的常见使用
+
+```
+//1、获取字符串的长度
+String s1="ab黑马999";
+System.out.println(s1.length());
+
+//2、获取某个索引的字符
+System.out.println(s1.charAt(2));
+
+//3、遍历字符串
+//方法一
+for (int i = 0; i < s1.length(); i++) {
+    System.out.println(s1.charAt(i));
+}
+//方法二，将字符串转为字符串数组，再进行遍历
+char[] c=s1.toCharArray();
+for (int i = 0; i < c.length; i++) {
+    System.out.println(c[i]);
+}
+
+String s2="黑马666";
+String s3="黑马666";
+//4、equals：判断字符串相同返回true
+System.out.println(s2.equals(s3));//true
+System.out.println(s2==s3);//比较的是地址，false
+
+String st1="agfh56";
+String st2="AgFh56";
+//5、忽略大小写比较字符串内容
+System.out.println(st1.equalsIgnoreCase(st2));
+
+//6、截取字符串内容
+System.out.println(st1.substring(0,2));
+System.out.println(st1.substring(2));//截取后一段内容
+
+//7、将字符串内容替换为其他，并返回新的对象
+String info="这个游戏太垃圾，sb,还我钱";
+String info1=info.replace("垃圾","**").replace("sb","++");
+System.out.println(info1);
+
+//8、判断字符串中是否包含某个关键词
+String s="黑马程序员999";
+System.out.println(s.contains("黑马"));
+
+//9、判断是否为某些字符开头
+System.out.println(s.startsWith("黑马"));
+System.out.println(s.startsWith("程序员"));
+//10、判断是否以某些字符结尾
+System.out.println(s.endsWith("999"));
+System.out.println(s.endsWith("员999"));
+
+//11、将字符串按照指定内容分割为多个字符串
+String stars="王宝强，黎明，张曼玉，成龙";
+String[] names=stars.split("，");
+for (int i = 0; i < names.length; i++) {
+    System.out.println(names[i]);
+}
+```
+
+3、字符串的注意事项
+
+①**String 的对象是不可变字符串对象**
+
+**以双引号方式写出的字符串对象，会在堆内存中的字符串常量池中存储**
+
+每次改变字符串对象实际上都是新产生的字符串对象，之前的字符串内容并没有改变
+
+```
+String s1="abc";//放在常量池中
+String s2="abc";//不用放了，直接返回相同的地址
+System.out.println(s1==s2);//true
+```
+
+②**以双引号方式写出的字符串对象，会在堆内存中的字符串常量池中存储**，且相同的字符串内容只放一份
+
+但通过new方式创建的字符串对象，每new一次都会产生一个新的对象放在堆内存中
+
+```
+ char[] ch={'a','b','c'};
+    String st1=new String(ch);//在堆内存中
+    String st2=new String(ch);//在堆内存中，地址不同
+    System.out.println(st1==st2);//false
+}
+```
+
+```
+String s3="abc";
+String s4="ab";
+String s5=s4+"c";//在编译的时候不知道三s4是什么
+System.out.println(s3==s5);//false
+
+String s6="abc";
+String s7="a"+"b"+"c";//编译的时候就将s7拼起来了，提高执行效率
+System.out.println(s6==s7);//true
+```

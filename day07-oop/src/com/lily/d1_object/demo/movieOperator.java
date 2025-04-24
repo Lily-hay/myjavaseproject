@@ -22,8 +22,7 @@ public class movieOperator {
                 System.out.println(m.getId()+"\t"+m.getName()+"\t"+m.getPrice()+"\t"+m.getActor());
                 return;
             }
-            System.out.println("您输入的id没有对应的电影");
         }
-
+        System.out.println("您输入的id没有对应的电影");
     }
 }
