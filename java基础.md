@@ -540,11 +540,11 @@ public int getAge() {
 
 ## 10、API
 
-1、包（使用其他包里的类需要导包）
+### 1、包（使用其他包里的类需要导包）
 
 ![image-20250424142927290](C:\Users\DL\AppData\Roaming\Typora\typora-user-images\image-20250424142927290.png)
 
-2、String
+### 2、String
 
 字符串概述
 
@@ -657,3 +657,55 @@ String s6="abc";
 String s7="a"+"b"+"c";//编译的时候就将s7拼起来了，提高执行效率
 System.out.println(s6==s7);//true
 ```
+
+### 3、ArrayList(集合)
+
+1、一种容器，存数据，集合大小可变
+
+2、是一种泛型化集合，各种类型都能存储，也可以指定类型
+
+3、常用的方法
+
+```
+ArrayList<String> list=new ArrayList();
+//1、直接添加数据
+list.add("java1");
+list.add("java1");
+list.add("100");
+list.add("金庸");
+System.out.println(list);
+
+//2、插入数据，指定位置
+list.add(1,"嵌入式");
+System.out.println(list);
+
+//3、根据索引获取数据
+String ele=list.get(1);
+System.out.println(ele);
+
+//4、根据索引删除数据，会返回被删除的数据
+System.out.println(list.remove(3));
+System.out.println(list);
+
+//5、直接删除数据，返回真假，默认只删除第一个出现的，要是想全部删除，需要遍历
+System.out.println(list.remove("java1"));
+System.out.println(list);
+
+//6、修改某个位置的数据，返回被修改之前的数据
+System.out.println(list.set(2, "古龙"));
+System.out.println(list);
+```
+
+11、ATM系统
+
+1、系统构架搭建
+
+①定义一个账户Accont类，用于存储用户信息，至少包含（卡号、姓名、性别、密码、余额、限额等）
+
+②定义一个ATM类，用来表示ATM系统，负责提供所有业务需求，如展示欢迎页、操作业务
+
+③定义一个测试类，负责测试系统：创建ATM系统并启动
+
+2、用户开户功能
+
+新增一个账户，包含用户信息
