@@ -3,7 +3,7 @@ package com.lily;
 public class Account {
     private String cardId;
     private String name;
-    private String sex;
+    private char sex;
     private String passWord;
     private double money;
     private double limit;
@@ -17,18 +17,18 @@ public class Account {
     }
 
     public String getName() {
-        return name;
+        return name+( sex == '男' ? "先生":"女士");
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getSex() {
+    public char getSex() {
         return sex;
     }
 
-    public void setSex(String sex) {
+    public void setSex(char sex) {
         this.sex = sex;
     }
 
